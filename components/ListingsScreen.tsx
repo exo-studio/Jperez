@@ -200,7 +200,7 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
               {displayedVehicles.map((vehicle) => (
                 <div
                   key={vehicle.id}
-                  onClick={() => navigate(`/vehicle/${vehicle.id}`)}
+                  onClick={() => onInquiry(vehicle)}
                   className="group relative bg-[#1A1A1A] rounded-[2rem] overflow-hidden cursor-pointer border border-white/5 hover:border-[#0066B3]/30 transition-all duration-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
                 >
                   {/* Enhanced Image Container */}

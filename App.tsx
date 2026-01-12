@@ -6,7 +6,6 @@ import HomeScreen from './components/HomeScreen';
 import ListingsScreen from './components/ListingsScreen';
 import ShareScreen from './components/ShareScreen';
 import Navigation from './components/Navigation';
-import VehicleDetailScreen from './components/VehicleDetailScreen';
 import { FOTON_VEHICLES } from './data/fotonVehicles';
 
 const WHATSAPP_NUMBER = "51937375605";
@@ -92,15 +91,6 @@ const AppContent: React.FC = () => {
               }
             />
             <Route path="/share" element={<ShareScreen lang={lang} />} />
-            <Route
-              path="/vehicle/:id"
-              element={
-                <VehicleDetailRouteWrapper
-                  lang={lang}
-                  onInquiry={(v) => openWhatsApp(t.waModel(v.brand, v.model))}
-                />
-              }
-            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
@@ -141,24 +131,6 @@ const AppContent: React.FC = () => {
         </div>
       )}
     </div>
-  );
-};
-
-const VehicleDetailRouteWrapper: React.FC<{ lang: Language; onInquiry: (v: any) => void }> = ({ lang, onInquiry }) => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const vehicle = FOTON_VEHICLES.find(v => v.id === id);
-
-  if (!vehicle) return <Navigate to="/listings" replace />;
-
-  return (
-    <VehicleDetailScreen
-      vehicle={vehicle}
-      lang={lang}
-      onBack={() => navigate(-1)}
-      onBook={onInquiry}
-      onShare={() => { /* Shared logic already in Listings/HomeScreen */ }}
-    />
   );
 };
 
