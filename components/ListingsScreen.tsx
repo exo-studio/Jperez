@@ -199,10 +199,10 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedVehicles.map((vehicle) => (
-                <div
+                <button
                   key={vehicle.id}
                   onClick={() => onInquiry(vehicle)}
-                  className="group relative bg-[#1A1A1A] rounded-[2rem] overflow-hidden cursor-pointer border border-white/5 hover:border-[#0066B3]/30 transition-all duration-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+                  className="w-full text-left group relative bg-[#1A1A1A] rounded-[2rem] overflow-hidden cursor-pointer border border-white/5 hover:border-[#0066B3]/30 transition-all duration-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
                 >
                   {/* Enhanced Image Container */}
                   <div className="aspect-[16/10] overflow-hidden relative group-hover:shadow-[0_0_30px_rgba(0,102,179,0.2)] transition-shadow duration-500">
@@ -234,7 +234,7 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
                       </svg>
                     </div>
 
-                    <h4 className="text-xl font-bold mb-1">{vehicle.model}</h4>
+                    <h4 className="text-xl font-bold mb-1 text-white">{vehicle.model}</h4>
                     <p className="text-xs text-white/40 uppercase tracking-widest font-bold mb-4">{vehicle.category}</p>
 
                     <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
@@ -248,7 +248,7 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
