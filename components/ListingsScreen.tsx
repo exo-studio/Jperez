@@ -69,7 +69,7 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
           <div className="flex flex-col items-center text-center space-y-2 mb-4">
             <p className="text-[10px] text-[#0066B3] uppercase tracking-[0.4em] font-black">{t.collection}</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-white">
-              Explora nuestros <span className="serif italic text-[#0066B3]">Modelos</span>
+              {t.exploreModels.split(' ').slice(0, -1).join(' ')} <span className="serif italic text-[#0066B3]">{t.exploreModels.split(' ').slice(-1)}</span>
             </h2>
           </div>
 
@@ -122,7 +122,7 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
                 <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                <span className="text-xs font-black tracking-widest uppercase">Volver</span>
+                <span className="text-xs font-black tracking-widest uppercase">{t.back}</span>
               </button>
 
               <h2 className="text-lg font-bold text-white tracking-tight absolute left-1/2 -translate-x-1/2">
@@ -193,14 +193,14 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
           {/* Models Grid */}
           <div className="px-6 lg:px-12 py-10">
             <h3 className="text-2xl font-light mb-8 text-white/50">
-              Modelos Disponibles <span className="text-white font-bold block text-sm tracking-wider uppercase mt-1">Explora la gama {selectedCategory}</span>
+              {t.modelsAvailable} <span className="text-white font-bold block text-sm tracking-wider uppercase mt-1">{t.exploreRange(selectedCategory)}</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedVehicles.map((vehicle) => (
                 <div
                   key={vehicle.id}
-                  onClick={() => onInquiry(vehicle)}
+                  onClick={() => navigate(`/vehicle/${vehicle.id}`)}
                   className="group relative bg-[#1A1A1A] rounded-[2rem] overflow-hidden cursor-pointer border border-white/5 hover:border-[#0066B3]/30 transition-all duration-500 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
                 >
                   {/* Enhanced Image Container */}
@@ -220,7 +220,7 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
                     {/* Image Overlay Label */}
                     <div className="absolute bottom-4 left-4">
                       <span className="bg-[#0066B3]/90 backdrop-blur-md text-[10px] font-black px-3 py-1 rounded-full text-white uppercase tracking-widest">
-                        Pure Performance
+                        {t.purePerformance}
                       </span>
                     </div>
                   </div>
@@ -238,11 +238,11 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
 
                     <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
                       <div>
-                        <span className="block text-[10px] text-white/30 uppercase">Motor</span>
-                        <span className="text-sm font-medium text-white/80">{vehicle.engine}</span>
+                        <span className="block text-[10px] text-white/30 uppercase">{t.engine}</span>
+                        <span className="text-sm font-medium text-white/80">{vehicle.engine.split(' ').slice(0, 2).join(' ')}</span>
                       </div>
                       <div>
-                        <span className="block text-[10px] text-white/30 uppercase">Potencia</span>
+                        <span className="block text-[10px] text-white/30 uppercase">{t.hp}</span>
                         <span className="text-sm font-medium text-white/80">{vehicle.hp} HP</span>
                       </div>
                     </div>

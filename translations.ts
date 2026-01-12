@@ -49,7 +49,12 @@ export const translations = {
     copyPhone: "Copiar teléfono",
     copyWeChat: "Copiar WeChat ID",
     phoneCopied: "Teléfono copiado",
-    wechatCopied: "WeChat ID copiado"
+    wechatCopied: "WeChat ID copiado",
+    exploreModels: "Explora nuestros modelos",
+    modelsAvailable: "Modelos Disponibles",
+    exploreRange: (cat: string) => `Explora la gama ${cat}`,
+    back: "Volver",
+    purePerformance: "Alto Rendimiento"
   },
   en: {
     role: "Business Manager - Peru",
@@ -100,7 +105,12 @@ export const translations = {
     copyPhone: "Copy phone",
     copyWeChat: "Copy WeChat ID",
     phoneCopied: "Phone copied",
-    wechatCopied: "WeChat ID copied"
+    wechatCopied: "WeChat ID copied",
+    exploreModels: "Explore our models",
+    modelsAvailable: "Available Models",
+    exploreRange: (cat: string) => `Explore the ${cat} range`,
+    back: "Back",
+    purePerformance: "High Performance"
   }
 };
 

@@ -74,6 +74,26 @@ const VehicleDetailScreen: React.FC<VehicleDetailScreenProps> = ({ vehicle, lang
           <h1 className="text-4xl lg:text-5xl tracking-tight leading-none text-white">{vehicle.brand} <span className="serif italic text-white/80">{vehicle.model}</span></h1>
         </div>
 
+        {/* Technical Specs Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="glass p-4 rounded-2xl border border-white/5 space-y-1">
+            <span className="text-[10px] text-white/30 uppercase tracking-widest block font-bold">{t.hp}</span>
+            <span className="text-xl font-light text-white">{vehicle.hp} <span className="text-[10px] text-white/40">HP</span></span>
+          </div>
+          <div className="glass p-4 rounded-2xl border border-white/5 space-y-1">
+            <span className="text-[10px] text-white/30 uppercase tracking-widest block font-bold">{t.engine}</span>
+            <span className="text-xl font-light text-white truncate block">{vehicle.engine}</span>
+          </div>
+          <div className="glass p-4 rounded-2xl border border-white/5 space-y-1">
+            <span className="text-[10px] text-white/30 uppercase tracking-widest block font-bold">{t.topSpeed}</span>
+            <span className="text-xl font-light text-white">{vehicle.topSpeed}</span>
+          </div>
+          <div className="glass p-4 rounded-2xl border border-white/5 space-y-1">
+            <span className="text-[10px] text-white/30 uppercase tracking-widest block font-bold">{t.acceleration}</span>
+            <span className="text-xl font-light text-white">{vehicle.acceleration}</span>
+          </div>
+        </div>
+
 
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
