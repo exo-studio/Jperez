@@ -143,7 +143,8 @@ const ListingsScreen: React.FC<ListingsScreenProps> = ({ lang, onInquiry }) => {
               return (
                 <div
                   key={vehicle.id}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${isCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  onClick={() => isCurrent && onInquiry(vehicle)}
+                  className={`absolute inset-0 transition-opacity duration-1000 cursor-pointer ${isCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'
                     }`}
                 >
                   {shouldRender && (
